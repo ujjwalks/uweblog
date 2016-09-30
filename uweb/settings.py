@@ -48,6 +48,12 @@ INSTALLED_APPS = [
     'authtools',
     'crispy_forms',
     'easy_thumbnails',
+    
+    #zinnia blog
+    'django_comments',
+    'mptt',
+    'tagging',
+    'zinnia',
 ]
 
 SITE_ID = 1
@@ -82,6 +88,7 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
+                'zinnia.context_processors.version',  # Optional
             ],
         },
     },

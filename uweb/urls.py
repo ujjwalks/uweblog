@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^$', views.HomePage.as_view(), name='home'),
     url(r'^about/$', views.AboutPage.as_view(), name='about'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^weblog/', include('zinnia.urls')),
+    url(r'^comments/', include('django_comments.urls')),
 ]
 
 # User-uploaded files like profile pics need to be served in development
