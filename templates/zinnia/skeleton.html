@@ -7,8 +7,8 @@
     <title>{% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %} - Zinnia's Weblog</title>
     <meta name="robots" content="follow, all" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="{% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}" />
-    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}" />
+    <meta name="description" content="{% block meta-description %}{% trans "Blogs for development" %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}" />
+    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, android, development, tutorials{% endblock meta-keywords %}" />
     <meta name="author" content="Fantomas42" />
     {% block meta %}{% endblock meta %}
     <link rel="pingback" href="/xmlrpc/" />
@@ -46,12 +46,12 @@
           </p>
         </form>
         <h1>
-          <a href="{% url 'zinnia:entry_archive_index' %}" title="Zinnia's Weblog" rel="home">
-            Zinnia's Weblog
+          <a href="{% url 'home' %}" title="Uweb" rel="home">
+            Uweb
           </a>
         </h1>
         <blockquote>
-          <p>{% trans "Just another Zinnia weblog." %}</p>
+          <p>{% trans "Blogs to nurture development" %}</p>
         </blockquote>
         {% block breadcrumbs %}{% endblock breadcrumbs %}
       </header>

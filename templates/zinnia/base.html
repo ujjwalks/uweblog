@@ -13,7 +13,7 @@
     <link rel="author" type="text/plain" href="{% url 'zinnia:humans' %}" />
     <link rel="EditURI" type="application/rsd+xml" href="{% url 'zinnia:rsd' %}" />
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{% url 'zinnia:wlwmanifest' %}" />
-    <link rel="search" type="application/opensearchdescription+xml" title="Zinnia's Weblog" href="{% url 'zinnia:opensearch' %}" />
+    <link rel="search" type="application/opensearchdescription+xml" title="Uweb Blog" href="{% url 'zinnia:opensearch' %}" />
     <link rel="alternate" type="application/rss+xml" title="{% trans "RSS feed of last entries" %}" href="{% url 'zinnia:entry_feed' %}" />
     <link rel="alternate" type="application/rss+xml" title="{% trans "RSS feed of last discussions" %}" href="{% url 'zinnia:discussion_feed' %}" />
     {% get_archives_entries "zinnia/tags/entries_archives_link.html" %}
@@ -28,10 +28,10 @@
 <aside id="widget-welcome" class="widget">
   <h3>{% trans "Welcome!" %}</h3>
   <p>
-    {% trans "This simple theme is the default appearance of Zinnia." %}
+    {% trans "Blogs to help new developers and entrepreneurs" %}
   </p>
   <p>
-    {% trans "Don't hesitate to override the template <strong>zinnia/base.html</strong> to start <a href='http://docs.django-blog-zinnia.com/en/latest/how-to/customize_look_and_feel.html'>customizing your Weblog</a>." %}
+    {% trans "Don't hesitate to request for tutorials. I will create blog for it within a week. To request for blog <a href='http://docs.django-blog-zinnia.com/en/latest/how-to/customize_look_and_feel.html'>click here</a>." %}
   </p>
 </aside>
 <aside id="widget-categories" class="widget">
@@ -39,16 +39,6 @@
     <a href="{% url 'zinnia:category_list' %}">{% trans "Categories" %}</a>
   </h3>
   {% get_categories %}
-</aside>
-<aside id="widget-authors" class="widget">
-  <h3>
-    <a href="{% url 'zinnia:author_list' %}">{% trans "Authors" %}</a>
-  </h3>
-  {% get_authors %}
-</aside>
-<aside id="widget-calendar" class="widget">
-  <h3>{% trans "Calendar" %}</h3>
-  {% get_calendar_entries %}
 </aside>
 <aside id="widget-tags" class="widget">
   <h3>
@@ -64,21 +54,9 @@
   <h3>{% trans "Recent comments" %}</h3>
   {% get_recent_comments %}
 </aside>
-<aside id="widget-linkbacks" class="widget">
-  <h3>{% trans "Recent linkbacks" %}</h3>
-  {% get_recent_linkbacks %}
-</aside>
-<aside id="widget-randoms" class="widget">
-  <h3>{% trans "Random entries" %}</h3>
-  {% get_random_entries %}
-</aside>
 <aside id="widget-populars" class="widget">
   <h3>{% trans "Popular entries" %}</h3>
   {% get_popular_entries %}
-</aside>
-<aside id="widget-archives" class="widget">
-  <h3>{% trans "Archives" %}</h3>
-  {% get_archives_entries_tree %}
 </aside>
 {% if user.is_authenticated %}
 <aside id="widget-tools" class="widget">
