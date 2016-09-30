@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 
 class HomePage(generic.TemplateView):
-    template_name = "hello.html"
+    template_name = "home.html"
 
 
 class AboutPage(generic.TemplateView):
