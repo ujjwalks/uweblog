@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}About{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="about" %}
+{% endblock %}
+
+<!-- Benefits of the Django application -->
+{% block container %}
+
+<div id="sec1" class="text-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>{% include "_brandname.html" %}</h1>
+        <p class="lead">People's dream and hunger never ends!!</p>
+        <p><a class="btn btn-primary" href="#" role="button">Click to post your project &raquo;</a></p>
+        <p align="center">I will callback within 24hrs.... <i class="fa fa-smile-o" aria-hidden="true"></i></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sec2" class="text-page">
+  <div class="container">
+  	<div class="row">
+      <div class="col-md-12 text-center">
+        <p class="lead" align="center">I guess you are here to know about me, right? Well, I am Ujjwal Singh...</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="text-center"><img class="img-circle centered" src="https://graph.facebook.com/900224946693780/picture?type=large" alt="profile pic"></div>
+        <p class="heavy text-center">Ujjwal Singh</p>
+        <h2 align="center">Full Stack Android App Developer</h2>
+        <p align="center">I did my B.Tech in Computer Science from IIT Kanpur</p>
+        <p align="right"><a class="btn btn-primary" href="#" role="button">My Resume &#11015;</a></p>
+      </div>
+      <div class="col-lg-4">
+      	<h2 align="center">My Work</h2>
+      	<p class="lead" align="justify">I have developed more than 12 android apps like <a href="https://play.google.com/store/apps/details?id=ruly.com.rulypro&hl=en">ruly</a>, 
+      	<a href="https://play.google.com/store/apps/details?id=in.co.hoi.cabshare&hl=en">hoi-cabshare</a>, <a href="https://play.google.com/store/apps/details?id=in.co.murs.plani&hl=en">plani</a>, 
+      	<a href="https://play.google.com/store/apps/details?id=in.agilo.partner.runner&hl=en">runner</a>. This website is my first professional Django product.</p>
+      	<p class="lead" align="justify">I’m currently working on ruly, but most of my time I’m helping new android developers and help to overcome their problems. This involves app back-end, app front-end and new & upcoming android tech.</p>
+      </div>
+      <div class="col-lg-4">
+        <h2 align="center">My Interests</h2>
+      	<p class="lead" align="justify">I am a gaming enthusiast and otaku. I also love traveling. Over last 5 years, I have been to 25 different cities in 7 states.</p>
+        <p class="lead" align="justify">I like to learn new things and satisfied with my day if I can add one or two things in my arsenal.</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="sec3" class="text-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 align="center">On journey to success two things are important.<br/> Never stopping attitude and sense of direction!!</h2>
+        <p class="lead" align="center">I developed this web-site to help young developers and entrepreneurs with their venture. Tutorials and sample projects to boost their production.</p>
+      	<p class="lead" align="center">If you want to get in touch with me ASAP, click below &#8595;</p>
+      	<p><a class="btn btn-primary" href="#" role="button">Contact me &raquo;</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sec4">
+  <div class="container">
+    <div class="row">
+      <div id="map-outer" class="col-md-12">
+        <div id="address" class="col-md-4">
+          <h2>My Location</h2>
+          <address>
+            <strong>Indirapuram</strong><br>
+            Ghaziabad<br>
+            NCR<br>
+            Uttar Pradesh<br>
+            India - 201014<br>
+            <abbr>P:</abbr> +91 8826 235 246
+          </address>
+        </div>
+        <div id="map-container" class="col-md-8"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock container %}
+
+{% block scripts %}
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <script>
+
+   function init_map() {
+     // Enter the latitude and longitude of your office here
+	 var myLocation = new google.maps.LatLng(28.6415, 77.3714);
+
+     var mapOptions = {
+          center: myLocation,
+          zoom: 14
+     };
+
+	 var marker = new google.maps.Marker({
+	   position: myLocation,
+	   title:"We are here"});
+
+     var map = new google.maps.Map(document.getElementById("map-container"),
+                                   mapOptions);
+	 marker.setMap(map);
+   }
+
+   google.maps.event.addDomListener(window, 'load', init_map);
+  </script>
+{% endblock scripts %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Home{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="home" %}
+{% endblock %}
+
+{% block navbar-right %}
+  {% if not user.is_authenticated %}
+<a class="btn btn-default" href="#" role="button">Log in</a>
+<a class="btn btn-primary" href="#" role="button">Sign up</a>
+  {% else %}
+    {{ block.super }}
+  {% endif %}
+{% endblock %}
+
+{% block splash %}
+  <div class="jumbotron jumbotron-carousel corporate-jumbo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-8">
+          <h1>{% include "_brandname.html" %}</h1>
+          <p>Space of me, by me, for everyone!!</p>
+	  <a class="btn btn-primary" href="#" role="button">Post your project and get quote!</a>
+        </div>
+        <div class="col-md-4 col-sm-4">
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock splash %}
+
+{% block container %}
+<!-- Benefits of the Django application -->
+<a name="about"></a>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>Blog</h2>
+      <p>Do you want to read my aspirations and thoughts and tutorials?</p>
+      <p><a class="btn btn-primary" href="#" role="button">Yes &raquo;</a></p>
+    </div>
+    <div class="col-lg-4">
+      <h2>Projects</h2>
+      <p>Browse through all interesting projects that I have worked and been working on</p>
+      <p><a class="btn btn-primary" href="#" role="button">View &raquo;</a></p>
+    </div>
+    <div class="col-lg-4">
+      <h2>About</h2>
+      <p>Do you want to know more about me?</p>
+      <p><a class="btn btn-primary" href="#" role="button">Yes &raquo;</a></p>
+    </div>
+  </div>
+</div>
+
+{% endblock container %}
+
+{% block scripts %}
+<script src="{% static 'site/js/site.js' %}"></script>
+{% endblock scripts %}
+
