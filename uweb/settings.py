@@ -28,7 +28,7 @@ MEDIA_URL = "/media/"
 SECRET_KEY = '%10wx#!!(pkefb1g##*e0ex2l9d$a3ozy7a1#6rm7*ep5iql$@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -56,7 +56,7 @@ INSTALLED_APPS = [
     'zinnia',
 ]
 
-SITE_ID = 1
+SITE_ID = 2
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
