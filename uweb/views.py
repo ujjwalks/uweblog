@@ -1,6 +1,8 @@
 from django.views import generic
 import requests
 from django.http import HttpResponse
+from wsgiref.util import FileWrapper
+
 
 
 class HomePage(generic.TemplateView):

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Post Project{% endblock %}
+
+{% block container %}
+<div class="container form-box">
+  <div class="text-center">
+    <h2>}Get advice or qoute on project from me within 24hrs</h2>
+  </div>
+  <div class="form-message">
+  		<form method="POST" class="post-form">{% csrf_token %}
+        	{{ form.as_p }}
+        <input type="submit" value="Post Project" />
+    </form>
+  </div>
+</div>
+
+{% endblock container %}
+

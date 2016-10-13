@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+import projects.urls
 
 urlpatterns = [
     url(r'^$', views.HomePage.as_view(), name='home'),
@@ -25,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^weblog/', include('zinnia.urls')),
     url(r'^comments/', include('django_comments.urls')),
+    url(r'^projects/', include(projects.urls, namespace='projects')),
 ]
 
 # User-uploaded files like profile pics need to be served in development

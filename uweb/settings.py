@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'authtools',
     'crispy_forms',
     'easy_thumbnails',
+    'projects',
     
     #zinnia blog
     'django_comments',

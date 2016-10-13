@@ -19,7 +19,7 @@
         <div class="col-md-8 col-sm-8">
           <h1>{% include "_brandname.html" %}</h1>
           <p>Space of me, by me, for everyone!!</p>
-	  <a class="btn btn-primary" href="#" role="button">Post your project and get quote!</a>
+	  <a class="btn btn-primary" href="{% url 'projects:post' %}" role="button">Post your project and get quote!</a>
         </div>
         <div class="col-md-4 col-sm-4">
 
@@ -43,12 +43,12 @@
     <div class="col-lg-4">
       <h2>Projects</h2>
       <p>Browse through all interesting projects that I have worked and been working on</p>
-      <p><a class="btn btn-primary" href="#" role="button">View &raquo;</a></p>
+      <p><a class="btn btn-primary" href="{% url 'projects:listing'%}" role="button">View &raquo;</a></p>
     </div>
     <div class="col-lg-4">
       <h2>About</h2>
       <p>Do you want to know more about me?</p>
-      <p><a class="btn btn-primary" href="#" role="button">Yes &raquo;</a></p>
+      <p><a class="btn btn-primary" href="{% url 'about' %}" role="button">Yes &raquo;</a></p>
     </div>
   </div>
 </div>
