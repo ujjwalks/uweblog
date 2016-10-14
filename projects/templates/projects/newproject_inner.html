@@ -1,0 +1,21 @@
+{% load crispy_forms_tags %}
+
+<div class="container">
+  <h1 class="text-primary"></h1>
+  <hr>
+  <div class="row">
+      
+    <!-- edit form column -->
+    <div class="col-md-9">
+      <h3>Your problem or project details</h3>
+      <form enctype="multipart/form-data" method="post">
+		{% crispy post_project_form %}
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container form-box">
+  <div class="text-center">
+    <h4>I will contact you within 24 hrs...</h4>
+  </div>
+</div>

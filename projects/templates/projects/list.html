@@ -1,21 +1,61 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Projects{% endblock %}
+
+{% block navbar-left %}
+  {% include "_navbar.html" with active_link="project" %}
+{% endblock %}
+
+{% block container %}
+
+<div class="container">
+
+<h1 class="text-primary"></h1>
+
 {% for project in projects %}
-    {# Each "project" is a WorkProject model object. #}
-    {{ project.title|upper }}<br />
-    ...
+<div class="panel panel-default">
+<div class="panel-body">
+<div class="row">
+
+<div class="col-md-7 text-center">
+<h3 align="left">{{ project.title}}</h3>
+</div>
+
+<div class="col-md-5 text-center">
+<div class="btn-group btn-group-justified">
+  <a href="#" class="btn btn-default"><i class="fa fa-file-text-o"></i> Documentation </a>
+  <a href="#" class="btn btn-default"><i class="fa fa-image"></i> Screenshots </a>
+  <a href="{{project.github_url}}" class="btn btn-default"><i class="fa fa-github"></i> Github </a>
+</div>
+</div>
+<div class="col-md-12 text-center">
+<p align="left">{{ project.description}}</p>
+</div>
+
+<div class="col-md-12 text-center">
+{% for image in project.images_set.all %} 
+  <img src="{% static 'site/img/logo.png' %}" />
+{% endfor %}
+</div>
+
+</div>
+</div>
+</div>
+
 {% endfor %}
 
-<div class="pagination">
-    <span class="step-links">
-        {% if projects.has_previous %}
-            <a href="?page={{ projects.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span class="current">
-            Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
-        </span>
-
-        {% if projects.has_next %}
-            <a href="?page={{ projects.next_page_number }}">next</a>
-        {% endif %}
-    </span>
+        <ul class="pagination pagination-sm">
+                <li>{% if projects.has_previous %}<a href="?page={{ projects.previous_page_number }}"> &laquo; </a> {% endif %} </li>
+                <li class="active"><a href="#"> {{ projects.number }} of {{ projects.paginator.num_pages }}</a></li>
+                <li>{% if projects.has_next %} <a href="?page={{ projects.next_page_number }}">&raquo;</a> {% endif %}</li>
+        </ul>
 </div>
+
+{% endblock container %}
+
+{% block scripts %}
+<script src="{% static 'site/js/site.js' %}"></script>
+{% endblock scripts %}

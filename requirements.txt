@@ -21,4 +21,3 @@ regex==2016.9.22
 requests==2.9.1
 six==1.10.0
 whitenoise==3.2.2
-psycopg2==2.5.4
