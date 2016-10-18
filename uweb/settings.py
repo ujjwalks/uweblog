@@ -29,7 +29,6 @@ SECRET_KEY = '%10wx#!!(pkefb1g##*e0ex2l9d$a3ozy7a1#6rm7*ep5iql$@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -102,13 +101,6 @@ WSGI_APPLICATION = 'uweb.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -160,7 +152,7 @@ THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails
 STATIC_URL = '/static/'
 
 import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+DATABASES = { 'default': dj_database_url.config() }
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
