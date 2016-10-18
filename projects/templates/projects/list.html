@@ -27,18 +27,12 @@
 <div class="col-md-5 text-center">
 <div class="btn-group btn-group-justified">
   <a href="#" class="btn btn-default"><i class="fa fa-file-text-o"></i> Documentation </a>
-  <a href="#" class="btn btn-default"><i class="fa fa-image"></i> Screenshots </a>
+  <a href="{% url 'projects:screenshots' project.id %}" onClick="return popitup('/projects/{{project.id}}/screenshots')" class="btn btn-default"><i class="fa fa-image"></i> Screenshots </a>
   <a href="{{project.github_url}}" class="btn btn-default"><i class="fa fa-github"></i> Github </a>
 </div>
 </div>
 <div class="col-md-12 text-center">
 <p align="left">{{ project.description}}</p>
-</div>
-
-<div class="col-md-12 text-center">
-{% for image in project.images_set.all %} 
-  <img src="{% static 'site/img/logo.png' %}" />
-{% endfor %}
 </div>
 
 </div>
@@ -58,4 +52,11 @@
 
 {% block scripts %}
 <script src="{% static 'site/js/site.js' %}"></script>
+<script type="text/javascript">
+function popitup(url) {
+    newwindow=window.open(url,'{{title}}','height=630,width=1120');
+    if (window.focus) {newwindow.focus()}
+    return false;
+}
+</script>
 {% endblock scripts %}

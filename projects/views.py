@@ -66,6 +66,10 @@ def listing(request):
 
     return render(request, 'projects/list.html', {'projects': projects})
 
+def screenshots(request, project_id):
+    project = get_object_or_404(WorkProject, pk=project_id)
+    return render(request, 'projects/screenshots.html', {'project': project})
+
 class AjaxTemplateMixin(object): 
     def dispatch(self, request, *args, **kwargs):
         if not hasattr(self, 'ajax_template_name'):

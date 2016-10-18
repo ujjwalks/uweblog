@@ -4,6 +4,7 @@ from django.utils.encoding import python_2_unicode_compatible
 import uuid
 from django.conf import settings
 from datetime import datetime
+from PIL import Image
 
 class BaseProject(models.Model):
     title = models.CharField(max_length=30)
@@ -38,6 +39,19 @@ class WorkProject(BaseProject):
         return "Academic Project: {}". format(self.title)
      
     
-class Image(models.Model):
+class Images(models.Model):
     work_project = models.ForeignKey(WorkProject)
-    image = models.ImageField()
+    images = models.ImageField()
+    
+    def save(self):
+        if not self.images:
+            return 
+        
+        super(Images, self).save()
+        image = Image.open(self.images)
+        (width, height) = image.size
+        new_height = 500
+        new_width = 500 * width/height     
+        size = ( new_width, new_height)
+        image = image.resize(size, Image.ANTIALIAS)
+        image.save(self.images.path)
